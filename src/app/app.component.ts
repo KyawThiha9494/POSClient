@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
   title = 'POSClient';
@@ -16,9 +15,9 @@ export class AppComponent {
   }
 
   ngOnInit() : void{
-    this.studentService
-    .getStudent()
-    .subscribe((result: Student[]) => (this.students = result));
-    console.log(this.students);
+    //this.studentService
+    //.getStudent()
+    //.subscribe((result: Student[]) => (this.students = result));
+    //console.log(this.students);
   }
 }

@@ -1,0 +1,11 @@
+.custom-li {
+    padding-right: 10px; /* Adjust the padding value as needed */
+  }
+
+.navbar-custom {
+    background-color: black;
+}
+.navbar-text-style{
+    color: rgb(195, 186, 186);
+    font-weight: bold;
+}
