@@ -7,7 +7,8 @@ import { DefaultLayoutComponent } from './default-layout/default-layout.componen
 import { StudentService } from './services/student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component'; 
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainComponent } from './main/main.component'; 
 
 @NgModule({
   declarations: [
