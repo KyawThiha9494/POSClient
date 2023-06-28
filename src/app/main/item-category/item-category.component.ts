@@ -12,4 +12,8 @@ export class ItemCategoryComponent {
 
   constructor(){
   }
+  toggleSelection(category: ItemCategory) {
+    console.log("----------select----"+category);
+    category.selected = !category.selected;
+  }
 }

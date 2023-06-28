@@ -1,6 +1,5 @@
-<div class="card">
+<div class="card" [class.selected]="category.selected" (click)="toggleSelection(category)">
     <div class="card-body">
-      <h5 class="card-title">{{ category.name }}</h5>
-      <p class="card-text">{{ category.description }}</p>
+      <p class="card-text">{{ category.name }}</p>
     </div>
   </div>

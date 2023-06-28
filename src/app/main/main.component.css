@@ -1,0 +1,16 @@
+
+  .scrollable-row {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+  }
+
+  .category {
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px; /* Adjust the percentage as per your desired width */
+    margin-right: 20px; /* Adjust the margin as per your desired spacing */
+    vertical-align: top; /* Align items to the top */
+    box-sizing: border-box;
+  }
