@@ -1,14 +1,14 @@
-.card {
+.category-card {
     width: 100px; 
     height: 50px; 
     font-size: 80%;
     cursor: pointer;
 }
-.card-text{
+.category-card-text{
     font-size: 10px; 
     font-weight: bold;
   }
   
-  .card.selected {
+  .category-card.selected {
     background-color: #b7f8cc;
   }
