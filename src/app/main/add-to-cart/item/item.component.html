@@ -1,10 +1,18 @@
 <div class="card">
-    <!--../assets/image/xsr-silver.png-->
-    <img class="card-img-top" src="" alt="Item Image">
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text">{{ item.description }}</p>
-      <p class="card-price">{{ item.price }}</p>
+  <!--../assets/image/HarryPotter.jpg-->
+  <img class="card-img-top imageStyle" src="" alt="Item Image">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">{{ item.description }}</p>
+    <p class="card-price">{{ item.price }}</p>
+    <div *ngIf="count == 0">
       <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
     </div>
+    <div *ngIf="count > 0">
+      <button (click)="decrementCount()">-</button>
+      <span>{{ count }}</span>
+      <button (click)="incrementCount()">+</button>
+    </div>
   </div>
+</div>
+

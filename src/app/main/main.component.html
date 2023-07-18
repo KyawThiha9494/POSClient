@@ -6,10 +6,10 @@
 <div class="row">
     <p>main works!</p>
     <div class="col-sm-8">
-        <add-to-cart></add-to-cart>
+        <add-to-cart (sendToMain)="receiveData($event)"></add-to-cart>
     </div>
     <div class="col-sm-4">
-        <order-summary></order-summary>
+        <order-summary [addItemList]="addItemList"></order-summary>
     </div>
 </div>
 

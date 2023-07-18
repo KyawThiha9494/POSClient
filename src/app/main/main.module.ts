@@ -8,6 +8,7 @@ import { BrandService } from '../services/brand.service';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ItemComponent } from './add-to-cart/item/item.component';
+import { AddItemSummaryComponent } from './order-summary/add-item-summary/add-item-summary.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ItemComponent } from './add-to-cart/item/item.component';
     ItemCategoryComponent,
     AddToCartComponent,
     OrderSummaryComponent,
-    ItemComponent
+    ItemComponent,
+    AddItemSummaryComponent
   ],
   providers: [BrandService],
   imports: [

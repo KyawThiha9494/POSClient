@@ -1,0 +1,17 @@
+<div class="row" *ngIf="addItem">
+    <div class="col-sm-5">
+        <p>{{ addItem.item.name }}</p>
+    </div>
+    <div class="col-sm-2">
+        <p>{{ addItem.count }}</p>
+    </div>
+    <div class="col-sm-4">
+        <p style="float: right;">{{ addItem.item.price * addItem.count}}</p>
+    </div>
+    <button type="button" class="btn btn-danger col-sm-1" (click)="onDeleteItem(addItem)">
+        <i class="fa fa-trash"></i>
+    </button>      
+</div>
+<div>
+    <button class="btn btn-primary floating-button" (click)="onButtonClick()">Buy</button>
+</div>
