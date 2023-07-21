@@ -1,17 +1,21 @@
-<div class="card">
+<div class="card small-card">
   <!--../assets/image/HarryPotter.jpg-->
   <img class="card-img-top imageStyle" src="" alt="Item Image">
   <div class="card-body">
-    <h5 class="card-title">{{ item.name }}</h5>
-    <p class="card-text">{{ item.description }}</p>
-    <p class="card-price">{{ item.price }}</p>
-    <div *ngIf="count == 0">
-      <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
+    <h5 class="card-title">{{ orderItem.item.name }}</h5>
+    <p class="card-text">{{ orderItem.item.description }}</p>
+    <p class="card-price">{{ orderItem.item.price }}</p>
+    <div *ngIf="orderItem.count == 0">
+      <button class="btn btn-primary" (click)="addToCart(orderItem.item)">Add to Cart</button>
     </div>
-    <div *ngIf="count > 0">
-      <button (click)="decrementCount()">-</button>
-      <span>{{ count }}</span>
-      <button (click)="incrementCount()">+</button>
+    <div *ngIf="orderItem.count > 0">
+      <button (click)="decrementCount()">
+        <i class="fa fa-minus"></i>
+      </button>
+      <span>{{ orderItem.count }}</span>
+      <button (click)="incrementCount()">
+        <i class="fa fa-plus"></i>
+      </button>
     </div>
   </div>
 </div>

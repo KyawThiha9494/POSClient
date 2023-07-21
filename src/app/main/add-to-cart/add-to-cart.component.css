@@ -1,8 +1,4 @@
-.vertical-scrollable {
-    overflow-y: auto;
-    overflow-x: hidden;
-    white-space: nowrap;
-  }
+
   
   .item {
     display: inline-block;
@@ -10,6 +6,12 @@
     margin: 0 5px;
     margin-bottom: 20px;
   }
-  
+  .vertical-scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+    height: 600px;    
+    border: 1px solid #ccc; 
+  }
   
   

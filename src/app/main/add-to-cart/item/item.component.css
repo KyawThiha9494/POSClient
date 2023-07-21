@@ -2,3 +2,37 @@
     width: auto;
     height: 100px;
 }
+
+
+.small-card {
+    width: 166px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .small-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .card-price {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .btn-primary {
+    font-size: 14px;
+  }
+  

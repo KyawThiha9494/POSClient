@@ -4,12 +4,11 @@
 </div>
 <hr>
 <div class="row">
-    <p>main works!</p>
     <div class="col-sm-8">
-        <add-to-cart (sendToMain)="receiveData($event)"></add-to-cart>
+        <add-to-cart [orderItems]="addItemList" (sendToMain)="receiveData($event)"></add-to-cart>
     </div>
     <div class="col-sm-4">
-        <order-summary [addItemList]="addItemList"></order-summary>
+        <order-summary [addItemList]="addItemList" (removeItem)="deleteFromOrderList($event)"></order-summary>
     </div>
 </div>
 
