@@ -105,7 +105,6 @@ export class MainComponent {
     this.subscription = this.brandService.getAllBrands().subscribe((data: ItemCategory[]) => {
       this.categories = data;
     });
-    console.log("catego"+this.categories);
     this.items.forEach(item => {
       this.items.forEach(item => {
         this.addItemList.push({
@@ -117,13 +116,14 @@ export class MainComponent {
   }
 
   receiveData(data: OrderItem) {
-    console.log("data in main component");
+   // console.log("data in main component");
     if(!this.addItemList.includes(data)){
       this.addItemList.push(data);
     }else if(data.count == 0){
       this.itemRemove(data);
     }
-    console.log(this.addItemList);
+    this.addItemList = [...this.addItemList];
+   // console.log(this.addItemList);
   }
 
   itemRemove(data:OrderItem){
@@ -132,6 +132,7 @@ export class MainComponent {
         i.count = i.count-1;
       }
     });
+    this.addItemList = [...this.addItemList];
   }
 
   deleteFromOrderList(data:OrderItem){
@@ -140,6 +141,7 @@ export class MainComponent {
         i.count = 0;
       }
     });
+    this.addItemList = [...this.addItemList];
   }
 
   ngOnDestroy() {

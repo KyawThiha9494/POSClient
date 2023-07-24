@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
-import { AddToCartComponent } from './main/add-to-cart/add-to-cart.component'; 
+import { AddToCartComponent } from './main/add-to-cart/add-to-cart.component';
+import { TotalAmountComponent } from './main/total-amount/total-amount.component'; 
 
 @NgModule({
   declarations: [

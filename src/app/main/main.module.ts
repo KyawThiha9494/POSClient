@@ -9,6 +9,7 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ItemComponent } from './add-to-cart/item/item.component';
 import { AddItemSummaryComponent } from './order-summary/add-item-summary/add-item-summary.component';
+import { TotalAmountComponent } from './total-amount/total-amount.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AddItemSummaryComponent } from './order-summary/add-item-summary/add-it
     AddToCartComponent,
     OrderSummaryComponent,
     ItemComponent,
-    AddItemSummaryComponent
+    AddItemSummaryComponent,
+    TotalAmountComponent
   ],
   providers: [BrandService],
   imports: [

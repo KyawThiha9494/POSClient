@@ -38,3 +38,11 @@ body, html {
   border: 1px solid #ccc;
 }
 
+.vertical-scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  height: 500px;    
+  border: 1px solid #ccc; 
+}
+

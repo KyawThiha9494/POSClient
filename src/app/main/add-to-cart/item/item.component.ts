@@ -11,24 +11,35 @@ export class ItemComponent {
   @Output() dataEvent = new EventEmitter<OrderItem>();
 
   @Input() orderItem:OrderItem = new OrderItem;
+
+  count : number = 0;
   constructor(){
   }
 
   addToCart(item: Item){
-    this.orderItem.count++;
+    this.orderItem.count = 1;
+    this.count = 1;
     this.orderItem.item = item;
+    console.log("Order Item Count add to cart:"+this.orderItem.count);
     this.dataEvent.emit(this.orderItem);
   }
 
   incrementCount(): void {
     this.orderItem.count++;
+    this.count++;
+    console.log("Order Item Count incre:"+this.orderItem.count);
     this.dataEvent.emit(this.orderItem);
   }
 
   decrementCount(): void {
-    if (this.orderItem.count > 0) {
+    if(this.orderItem.count >0){
       this.orderItem.count--;
+      this.count--;
+      console.log("Order Item Count dec:"+this.orderItem.count);
       this.dataEvent.emit(this.orderItem);
+    }else{
+      this.orderItem.count = 0;
+      this.count = 0;
     }
   }
 }
