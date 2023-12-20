@@ -10,6 +10,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ItemComponent } from './add-to-cart/item/item.component';
 import { AddItemSummaryComponent } from './order-summary/add-item-summary/add-item-summary.component';
 import { TotalAmountComponent } from './total-amount/total-amount.component';
+import { ItemService } from '../services/item.service';
+import { CustomModalComponent } from './custom-modal/custom-modal.component';
 
 
 @NgModule({
@@ -20,9 +22,13 @@ import { TotalAmountComponent } from './total-amount/total-amount.component';
     OrderSummaryComponent,
     ItemComponent,
     AddItemSummaryComponent,
-    TotalAmountComponent
+    TotalAmountComponent,
+    CustomModalComponent
   ],
-  providers: [BrandService],
+  providers: [
+    BrandService,
+    ItemService
+  ],
   imports: [
     CommonModule,
     MainRoutingModule

@@ -5,12 +5,23 @@
     <div class="col-sm-2">
         <p>{{ addItem.count }}</p>
     </div>
+    <!-- <div class="col-sm-2">
+        <button style="border: none;" (click)="decrementCount()">
+           <i class="fa fa-minus"></i>
+        </button>
+        <span>{{ addItem.count }}</span>
+        <button style="border: none;"  (click)="incrementCount()">
+           <i class="fa fa-plus"></i>
+        </button>
+    </div>-->
     <div class="col-sm-4">
         <p style="float: right;">{{ addItem.item.price * addItem.count}}</p>
     </div>
     <button type="button" class="btn btn-danger col-sm-1" style="height: 30px;" (click)="onDeleteItem(addItem)">
-        <i class="fa fa-trash"></i>
-    </button>      
+        <div class="d-flex align-items-center">
+          <i class="fa fa-trash mr-2"></i>
+        </div>
+      </button> 
 </div>
 <!-- <div>
     <button class="btn btn-primary floating-button" (click)="onButtonClick()">Buy</button>

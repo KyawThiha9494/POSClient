@@ -16,6 +16,9 @@ export class ItemComponent {
   constructor(){
   }
 
+  ngOnInit() {
+    console.log("Inside Item Components : "+ JSON.stringify(this.orderItem))
+  }
   addToCart(item: Item){
     this.orderItem.count = 1;
     this.count = 1;
@@ -32,14 +35,9 @@ export class ItemComponent {
   }
 
   decrementCount(): void {
-    if(this.orderItem.count >0){
       this.orderItem.count--;
       this.count--;
       console.log("Order Item Count dec:"+this.orderItem.count);
       this.dataEvent.emit(this.orderItem);
-    }else{
-      this.orderItem.count = 0;
-      this.count = 0;
-    }
   }
 }

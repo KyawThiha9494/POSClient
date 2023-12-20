@@ -36,3 +36,7 @@
     font-size: 14px;
   }
   
+  .plus-minus-btn {
+    border: none;
+    background-color: white;
+  }

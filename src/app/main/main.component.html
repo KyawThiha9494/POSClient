@@ -5,15 +5,18 @@
 <hr>
 <div class="row">
     <div class="col-sm-8">
-        <add-to-cart [orderItems]="addItemList" (sendToMain)="receiveData($event)"></add-to-cart>
+        <add-to-cart [orderItems]="itemList" (sendToMain)="receiveData($event)"></add-to-cart>
     </div>
     <div class="col-sm-4" style="background-color: #f5f4f4;;">
         <div class="row vertical-scrollable" style="height: 400px;">
             <order-summary [addItemList]="addItemList" (removeItem)="deleteFromOrderList($event)"></order-summary>
         </div>
         <div class="row" style="height: 100px;">
-            <total-amount [addedItems]="addItemList"></total-amount>
+            <total-amount [addedItems]="addItemList" (checkOut)="checkOut($event)"></total-amount>
         </div>
     </div>
+    <app-custom-modal
+  *ngIf="isModalOpen"
+  (closeModal)="isModalOpen = false"
+></app-custom-modal>
 </div>
-

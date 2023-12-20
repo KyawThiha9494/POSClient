@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ItemCategory } from '../models/item-category';
 import { BrandService } from '../services/brand.service';
 import { Subscription } from 'rxjs';
 import { Item } from '../models/item';
 import { OrderItem } from '../models/order-item';
+import { ItemService } from '../services/item.service';
+import { ItemConfig } from '../models/item-config';
+import { createItem } from '../shared/item-factory';
 
 @Component({
   selector: 'main',
@@ -12,11 +15,19 @@ import { OrderItem } from '../models/order-item';
 })
 export class MainComponent {
   categories: ItemCategory[] = [];
-  private subscription: Subscription | undefined;
+  apiItems: any;
+  itemType: any;
+  isModalOpen: boolean = false;
+  private brandSubscription: Subscription | undefined;
+  private itemSubscription: Subscription | undefined;
   receivedData!: OrderItem;
   orderItem!: OrderItem;
   addItemList: OrderItem[] = [];
+  itemList: OrderItem[] = [];
   //List<OrderItem> addItemList = new List<OrderItem>();
+  config: ItemConfig = {
+    type: 'motorcycle',
+  };
 
 
   items: Item[] = [
@@ -25,35 +36,30 @@ export class MainComponent {
       name: "Item 1",
       description: "Description of Item 1",
       price: 20000000,
-      selected: false,
     },
     {
       id: 2,
       name: "Item 2",
       description: "Description of Item 2",
       price: 20000000,
-      selected: true,
     },
     {
       id: 3,
       name: "Item 3",
       description: "Description of Item 3",
       price: 20000000,
-      selected: false,
     },
     {
       id: 4,
       name: "Item 4",
       description: "Description of Item 4",
       price: 20000000,
-      selected: false,
     },
     {
       id: 5,
       name: "Item 5",
       description: "Description of Item 5",
       price: 20000000,
-      selected: false,
     },
     
     {
@@ -61,65 +67,73 @@ export class MainComponent {
       name: "Item 6",
       description: "Description of Item 6",
       price: 20000000,
-      selected: false,
     },
     {
       id: 7,
       name: "Item 7",
       description: "Description of Item 7",
       price: 20000000,
-      selected: false,
     },
     {
       id: 8,
       name: "Item 8",
       description: "Description of Item 8",
-      price: 20000000,
-      selected: false,
+      price: 20000000
     },
     {
       id: 9,
       name: "Item 9",
       description: "Description of Item 9",
-      price: 20000000,
-      selected: false,
+      price: 20000000
     },
     {
       id: 10,
       name: "Item 10",
       description: "Description of Item 10",
-      price: 20000000,
-      selected: false,
+      price: 20000000
     },
     {
       id: 11,
       name: "Item 11",
       description: "Description of Item 11",
-      price: 20000000,
-      selected: false,
+      price: 20000000
     },
   ];
 
-
-  constructor(private brandService: BrandService) {
-    this.subscription = this.brandService.getAllBrands().subscribe((data: ItemCategory[]) => {
-      this.categories = data;
-    });
+  constructor(private brandService: BrandService,private itemService: ItemService) {
     this.items.forEach(item => {
-      this.items.forEach(item => {
-        this.addItemList.push({
+        this.itemList.push({
           item: item,
           count: 0
         });
-      });
     });
+
+    this.itemType = createItem(this.config);
+    this.apiItems = [] as Array<typeof this.itemType>;
+    console.log(typeof this.itemType);
+    this.brandSubscription = this.brandService.getAllBrands().subscribe((data: ItemCategory[]) => {
+      this.categories = data;
+    });
+  
+    this.itemSubscription = this.itemService.getAllItems().subscribe((data: any) => {
+      //console.log("before insert - "+JSON.stringify(data));
+      this.apiItems = data;
+      console.log("Getting data from api"+ JSON.stringify(this.apiItems) +"--");
+    });
+    
   }
 
+  ngOnInit() {
+
+  }
+  
+  
+  
   receiveData(data: OrderItem) {
    // console.log("data in main component");
     if(!this.addItemList.includes(data)){
       this.addItemList.push(data);
-    }else if(data.count == 0){
+    }else if(this.addItemList.includes(data) && data.count == 0){
       this.itemRemove(data);
     }
     this.addItemList = [...this.addItemList];
@@ -144,9 +158,31 @@ export class MainComponent {
     this.addItemList = [...this.addItemList];
   }
 
+  checkOut(checkOutItems:OrderItem[]){
+    this.isModalOpen = true;
+    //console.log("main check out -"+checkOutItems.toString());
+    this.itemService.CheckOutItems(checkOutItems).subscribe(
+      (response: boolean) => {
+        console.log("Response from server:", response);
+      },
+      (error) => {
+        console.error("Error occurred:", error);
+        // Handle errors if necessary
+      }
+    );
+  }
+
+  
+  hideModal() {
+    this.isModalOpen = false;
+  }
+
   ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+    if (this.brandSubscription) {
+      this.brandSubscription.unsubscribe();
+    }
+    if (this.itemSubscription) {
+      this.itemSubscription.unsubscribe();
     }
   }
 

@@ -5,15 +5,15 @@
     <h5 class="card-title">{{ orderItem.item.name }}</h5>
     <p class="card-text">{{ orderItem.item.description }}</p>
     <p class="card-price">{{ orderItem.item.price }}</p>
-    <div *ngIf="count == 0">
+    <div *ngIf="orderItem.count == 0 || count == 0">
       <button class="btn btn-primary" (click)="addToCart(orderItem.item)">Add to Cart</button>
     </div>
-    <div *ngIf="count > 0">
-      <button style="border: none;" (click)="decrementCount()">
+    <div *ngIf="orderItem.count > 0">
+      <button class="plus-minus-btn" (click)="decrementCount()">
         <i class="fa fa-minus"></i>
       </button>
       <span>{{ orderItem.count }}</span>
-      <button style="border: none;"  (click)="incrementCount()">
+      <button class="plus-minus-btn"  (click)="incrementCount()">
         <i class="fa fa-plus"></i>
       </button>
     </div>
